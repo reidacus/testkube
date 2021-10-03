@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginx:
+    image: nginx 
+    ports:
+      - '8085:80' 
+    networks:
+        - comnet
+    deploy:
+        replicas: 3
+        restart_policy:
+            condition: on-failure
+networks:
+    comnet:
+        driver: bridge
